@@ -30,19 +30,19 @@ def getRand():
 
 
 
-usersDB = SqliteDatabase("User.db")
-
-class User(Model):
-    username = CharField(unique=True)
-    id = AutoField()
-    schedule = JSONField()
-
-    class Meta:
-        database = usersDB
-
-for i in User.select():
-    print(i.username)
-    print(i.schedule)
+# usersDB = SqliteDatabase("User.db")
+#
+# class User(Model):
+#     username = CharField(unique=True)
+#     id = AutoField()
+#     schedule = JSONField()
+#
+#     class Meta:
+#         database = usersDB
+#
+# for i in User.select():
+#     print(i.username)
+#     print(i.schedule)
 # usersDB.create_tables([User])
 #
 # for name in ["Bob", "Bill", "Jeb"]:
