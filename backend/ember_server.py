@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request
 import datetime
 from peewee import *
+from playhouse.sqlite_ext import *
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'lit_haxx3rs'

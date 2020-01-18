@@ -96,32 +96,33 @@ class Profile {
 final List<Profile> demoProfiles = [
   new Profile(
     photos: [
-      "assets/1.jpeg",
-      "assets/2.png",
-      "assets/3.jpeg",
-      "assets/4.jpg",
+      // URL's for the profiles
+      "https://www.petmd.com/sites/default/files/adult-homeless-cat-asking-for-food-picture-id847415388.jpg",
+      "https://www.petmd.com/sites/default/files/adult-homeless-cat-asking-for-food-picture-id847415388.jpg",
+      "https://www.petmd.com/sites/default/files/adult-homeless-cat-asking-for-food-picture-id847415388.jpg",
+      "https://www.petmd.com/sites/default/files/adult-homeless-cat-asking-for-food-picture-id847415388.jpg",
     ],
     name: "Master",
     bio: "Want some good quality pussy?",
   ),
   new Profile(
     photos: [
-      "assets/1.jpeg",
-      "assets/2.png",
-      "assets/3.jpeg",
-      "assets/4.jpg",
+      "https://www.petmd.com/sites/default/files/adult-homeless-cat-asking-for-food-picture-id847415388.jpg",
+      "https://www.petmd.com/sites/default/files/adult-homeless-cat-asking-for-food-picture-id847415388.jpg",
+      "https://www.petmd.com/sites/default/files/adult-homeless-cat-asking-for-food-picture-id847415388.jpg",
+      "https://www.petmd.com/sites/default/files/adult-homeless-cat-asking-for-food-picture-id847415388.jpg",
     ],
-    name: "Pussy",
+    name: "Master",
     bio: "Want some good quality pussy?",
   ),
   new Profile(
     photos: [
-      "assets/1.jpeg",
-      "assets/2.png",
-      "assets/3.jpeg",
-      "assets/4.jpg",
+      "https://www.petmd.com/sites/default/files/adult-homeless-cat-asking-for-food-picture-id847415388.jpg",
+      "https://www.petmd.com/sites/default/files/adult-homeless-cat-asking-for-food-picture-id847415388.jpg",
+      "https://www.petmd.com/sites/default/files/adult-homeless-cat-asking-for-food-picture-id847415388.jpg",
+      "https://www.petmd.com/sites/default/files/adult-homeless-cat-asking-for-food-picture-id847415388.jpg",
     ],
-    name: "Pussy",
+    name: "Master",
     bio: "Want some good quality pussy?",
   )
 ];
