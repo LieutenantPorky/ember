@@ -1,4 +1,5 @@
 from peewee import *
+from playhouse.sqlite_ext import *
 #from DatabaseManager import User
 import json
 from datetime import  date, datetime, time, timedelta
