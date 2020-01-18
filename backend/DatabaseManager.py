@@ -1,8 +1,9 @@
-import peewee
+from peewee import *
+from playhouse.sqlite_ext import *
 
 usersDB = SqliteDatabase("User.db")
 
-class User:
+class User(Model):
     username = CharField(unique=True)
     id = AutoField()
     schedule = JSONField()
