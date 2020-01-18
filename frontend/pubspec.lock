@@ -180,9 +180,9 @@ packages:
   tinder_card:
     dependency: "direct main"
     description:
-      name: tinder_card
-      url: "https://pub.dartlang.org"
-    source: hosted
+      path: "../tinder_cards"
+      relative: true
+    source: path
     version: "0.1.1"
   typed_data:
     dependency: transitive

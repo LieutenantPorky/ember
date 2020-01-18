@@ -19,7 +19,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  tinder_card: ^0.1.1
+  tinder_card: 
+    path: ../tinder_cards
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
