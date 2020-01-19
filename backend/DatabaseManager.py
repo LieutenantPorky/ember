@@ -40,18 +40,18 @@ def getMatched(user):
 
     return good_matches
 
-if __name__ == "__main__":
-    # usersDB.create_tables([Picture])
-    for i in User.select():
-        # if i.username=="Mark the Zucc Zuccson":
-        #     profile= Picture(user=i, hash='zucc1.jpeg')
-        #     profile.save()
-        #     profile= Picture(user=i, hash='zucc2.jpeg')
-        #     profile.save()
-        #
-        # else:
-        #     profile= Picture(user=i, hash='{}.jpeg'.format(['a','b','c','d','e','f','g'][np.random.randint(7)]))
-        #     profile.save()
-    # usersDB.create_tables([Match])
-
-    pass
+# if __name__ == "__main__":
+#     # usersDB.create_tables([Picture])
+#     for i in User.select():
+#         # if i.username=="Mark the Zucc Zuccson":
+#         #     profile= Picture(user=i, hash='zucc1.jpeg')
+#         #     profile.save()
+#         #     profile= Picture(user=i, hash='zucc2.jpeg')
+#         #     profile.save()
+#         #
+#         # else:
+#         #     profile= Picture(user=i, hash='{}.jpeg'.format(['a','b','c','d','e','f','g'][np.random.randint(7)]))
+#         #     profile.save()
+#     # usersDB.create_tables([Match])
+#
+#     pass

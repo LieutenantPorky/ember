@@ -53,6 +53,8 @@ def getDateTimes(s1,s2):
     return [[datetime.strptime(d,'%H:%M:%S').time() for d in t] for t in combinedFree]
 
 
+
+
 def getFreeRooms(timeSlots):
     #First, figure out which day of the week it is
     weekDay = datetime.today().weekday()
@@ -64,10 +66,9 @@ def getFreeRooms(timeSlots):
         delta = 0
         while (weekDay + delta) % 7 != i:
             delta += 1
-
-        print(timeSlots[i])
         possible_rooms = []
         for t in timeSlots[i]:
+            t = datetime.strptime(t,'%H:%M:%S').time()
             params = {
               "token": "uclapi-18eefea61aa8f4b-3ee8f19755065c5-4531c2d5bd84479-d325162d470dda7",
               "start_datetime": (datetime.combine(date.today(), t) + timedelta(days=delta)).isoformat(),
@@ -89,6 +90,17 @@ def getFreeRooms(timeSlots):
 
     return current_best, current_time
 
+def getARoom(u1, u2):
+    s1 = scheduleToArray(json.loads(u1.schedule)["timetable"])
+    s2 = scheduleToArray(json.loads(u2.schedule)["timetable"])
+    print(s1)
+    free1 = getFreeTime(s1)
+    free2 = getFreeTime(s2)
+    combinedFree = [list(set([j.isoformat() for j in free1[i]]) & set([j.isoformat() for j in free2[i]])) for i in range(0, len(free1))]
+
+    place, time = getFreeRooms(combinedFree)
+
+    return[time, place]
 
 
 

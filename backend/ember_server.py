@@ -5,7 +5,7 @@ from playhouse.sqlite_ext import *
 import os
 import hashlib
 from DatabaseManager import User, Picture, Match, addMatch, getMatched
-from ScheduleManager import matchSchedules
+from ScheduleManager import matchSchedules, getARoom
 from playhouse.shortcuts import model_to_dict, dict_to_model
 import json
 
@@ -19,7 +19,7 @@ OAuth = {}
 def kek():
     print(request.data)
     return "hello"
-    
+
 @app.route('/swiped/<username>')
 def swiped(username):
     user = User.get(username=username)
@@ -39,7 +39,7 @@ def get_matched():
     user = User.get(username=username)
     return [model_to_dict(i) for i in getMatched(user)]
 
-# curl -F 'file=@profiles/1_0.png' http://127.0.0.1:8080/upload_photo/1 
+# curl -F 'file=@profiles/1_0.png' http://127.0.0.1:8080/upload_photo/1
 # Photo upload
 @app.route("/upload_photo/<int:id>", methods=['POST'])
 def upload(id):
@@ -83,6 +83,15 @@ def get_users():
     return {"users": [
         [ model_to_dict(user, backrefs=True)  for user in combo ]
     ]}
+
+
+
+@app.route("/book/<int:id1>/<int:id2>")
+def book(id1, id2):
+    event = getARoom(User.get(id=id1), User.get(id=id2))
+
+    return jsonify([event[0], "room number {} in {}".format(event[1]["roomid"], event[1]["roomname"])])
+
 
 # Store OAuth tokens as a dictionary linked to user id
 
