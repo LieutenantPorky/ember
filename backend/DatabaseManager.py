@@ -25,6 +25,12 @@ class Picture(Model):
     class Meta:
         database = usersDB
 
+
+def addMatch(user, other):
+    newMatch = Match(user=user, match=other)
+    newMatch.create()
+
+
 if __name__ == "__main__":
     # usersDB.create_tables([Picture])
     # usersDB.create_tables([Match])
