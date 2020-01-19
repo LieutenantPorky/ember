@@ -226,23 +226,30 @@ class UserProfilePage extends StatelessWidget {
                 children: <Widget>[
                   SizedBox(height: screenSize.height / 6.4),
                   _buildProfileImage(),
-                  _buildFullName(),
-                  // _buildStatus(context),
-                  // _buildStatContainer(),
-                  _buildBio(context),
-                  // _buildSeparator(screenSize),
-                  // SizedBox(height: 10.0),
-                  // _buildGetInTouch(context),
-                  // SizedBox(height: 8.0),
-                  _buildButtons(),
-                  GridView.extent(
-                      maxCrossAxisExtent: 330.0,
-                      mainAxisSpacing: 5.0,
-                      crossAxisSpacing: 5.0,
-                      primary: false,
-                      padding: const EdgeInsets.all(5.0),
-                      shrinkWrap: true,
-                      children: _buildGridTitle(4))
+                  Container(
+                    decoration: new BoxDecoration(color: Colors.white),
+                    // padding: EdgeInsets.only(top: 100),
+                    child: Column(children: <Widget>[
+                      _buildFullName(),
+                      // _buildStatus(context),
+                      // _buildStatContainer(),
+                      _buildBio(context),
+                      // _buildSeparator(screenSize),
+                      // SizedBox(height: 10.0),
+                      // _buildGetInTouch(context),
+                      // SizedBox(height: 8.0),
+                      _buildButtons(),
+                      GridView.extent(
+                          maxCrossAxisExtent: 180.0,
+                          mainAxisSpacing: 5.0,
+                          crossAxisSpacing: 5.0,
+                          primary: false,
+                          padding: const EdgeInsets.all(5.0),
+
+                          shrinkWrap: true,
+                          children: _buildGridTitle(4))
+                    ]),
+                  ),
                 ],
               ),
             ),
