@@ -21,51 +21,58 @@ class Message {
 final User currentUser = User(
   id: 0,
   name: 'Current User',
-  imageUrl: 'assets/images/greg.jpg',
+  imageUrl: 'assets/images/zucc2.jpg',
 );
 
 // USERS
-final User greg = User(
+final User zucc = User(
   id: 1,
-  name: 'Greg',
-  imageUrl: 'assets/images/greg.jpg',
+  name: 'The Zucc',
+  imageUrl: 'assets/images/zucc2.jpeg',
 );
 final User james = User(
   id: 2,
   name: 'James',
-  imageUrl: 'assets/images/james.jpg',
+  imageUrl: 'assets/images/a.jpeg',
 );
 final User john = User(
   id: 3,
   name: 'John',
-  imageUrl: 'assets/images/john.jpg',
+  imageUrl: 'assets/images/c.jpeg',
 );
 final User olivia = User(
   id: 4,
   name: 'Olivia',
-  imageUrl: 'assets/images/olivia.jpg',
+  imageUrl: 'assets/images/b.jpeg',
 );
 final User sam = User(
   id: 5,
   name: 'Sam',
-  imageUrl: 'assets/images/sam.jpg',
+  imageUrl: 'assets/images/e.jpeg',
 );
 final User sophia = User(
   id: 6,
   name: 'Sophia',
-  imageUrl: 'assets/images/sophia.jpg',
+  imageUrl: 'assets/images/g.jpeg',
 );
 final User steven = User(
   id: 7,
   name: 'Steven',
-  imageUrl: 'assets/images/steven.jpg',
+  imageUrl: 'assets/images/f.jpeg',
 );
 
 // FAVORITE CONTACTS
-List<User> favorites = [sam, steven, olivia, john, greg];
+List<User> favorites = [sam, steven, olivia, john, zucc];
 
 // EXAMPLE CHATS ON HOME SCREEN
 List<Message> chats = [
+  Message(
+    sender: zucc,
+    time: '11:30 AM',
+    text: 'Hey baby, you heard of facebook?',
+    isLiked: false,
+    unread: false,
+  ),
   Message(
     sender: james,
     time: '5:30 PM',
@@ -83,14 +90,14 @@ List<Message> chats = [
   Message(
     sender: john,
     time: '3:30 PM',
-    text: 'I\'ve never tried that ',
+    text: 'I\'ve never tried that ;)',
     isLiked: false,
     unread: false,
   ),
   Message(
     sender: sophia,
     time: '2:30 PM',
-    text: 'Come here and give me that ******?',
+    text: 'I do computer science!',
     isLiked: false,
     unread: true,
   ),
@@ -108,13 +115,6 @@ List<Message> chats = [
     isLiked: false,
     unread: false,
   ),
-  Message(
-    sender: greg,
-    time: '11:30 AM',
-    text: 'Hey baby',
-    isLiked: false,
-    unread: false,
-  ),
 ];
 
 // EXAMPLE MESSAGES IN CHAT SCREEN
@@ -122,43 +122,43 @@ List<Message> messages = [
   Message(
     sender: james,
     time: '5:30 PM',
-    text: 'Hey, how\'s it going? What did you do today?',
-    isLiked: true,
+    text: 'What do you say? ;)',
+    isLiked: false,
     unread: true,
   ),
   Message(
     sender: currentUser,
     time: '4:30 PM',
-    text: 'Just walked my doge. She was super duper cute. The best pupper!!',
-    isLiked: false,
+    text: 'Excuse me??',
+    isLiked: true,
     unread: true,
   ),
   Message(
     sender: james,
     time: '3:45 PM',
-    text: 'How\'s the doggo?',
+    text: 'Let me put it in your \"USB\" slot baby ;)',
     isLiked: false,
     unread: true,
   ),
   Message(
     sender: james,
     time: '3:15 PM',
-    text: 'All the food',
-    isLiked: true,
+    text: 'Hmmmm, how about a favour?',
+    isLiked: false,
     unread: true,
   ),
   Message(
     sender: currentUser,
     time: '2:30 PM',
-    text: 'Nice! What kind of food did you eat?',
+    text: 'I don\'t know, you\'re The Zucc. You tell me.',
     isLiked: false,
     unread: true,
   ),
   Message(
     sender: james,
     time: '2:00 PM',
-    text: 'I ate so much food today.',
-    isLiked: false,
+    text: 'So, how did I end up matching with someone like you?',
+    isLiked: true,
     unread: true,
   ),
 ];
