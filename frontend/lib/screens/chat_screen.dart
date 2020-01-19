@@ -102,7 +102,7 @@ class _ChatScreenState extends State<ChatScreen> {
           ),
           actions: <Widget>[
             FlatButton(
-              child: Text('Regeret'),
+              child: Text('Regret'),
               onPressed: () {
                 Navigator.of(context).pop();
               },
