@@ -19,9 +19,10 @@ def kek():
 
 @app.route('/swiped')
 def swiped():
-    User = User.get(username=request.json["username"])
-    Match = User.get(id=request.json["other"])
-
+    user = User.get(username=request.json["username"])
+    match = User.get(id=request.json["other"])
+    Match.create(user=user, match=match)
+    return { "msg": "ok" }
 
 @app.route('/soulmate')
 def getSoulMate():
@@ -70,7 +71,7 @@ def get_users():
     matches = Match.select()
 
     # This will perform two queries.
-    combo = prefetch(users, pictures)
+    combo = prefetch(users, pictures, matches)
     return {"users": [
         [ model_to_dict(user, backrefs=True)  for user in combo ]
     ]}
