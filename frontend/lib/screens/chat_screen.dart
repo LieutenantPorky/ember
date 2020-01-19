@@ -12,6 +12,8 @@ class ChatScreen extends StatefulWidget {
 }
 
 class _ChatScreenState extends State<ChatScreen> {
+  // List<Message> messages = [];
+
   _buildMessage(Message message, bool isMe) {
     final Container msg = Container(
       margin: isMe
@@ -128,9 +130,10 @@ class _ChatScreenState extends State<ChatScreen> {
         ),
         elevation: 0.0,
         actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.more_horiz),
-            iconSize: 30.0,
+          FlatButton(
+            // icon: Icon(Icons.more_horiz),
+            // iconSize: 30.0,
+            child: Text("Book a room together"),
             color: Colors.white,
             onPressed: () {},
           ),

@@ -42,7 +42,7 @@ def getMatched(user):
 
 if __name__ == "__main__":
     # usersDB.create_tables([Picture])
-    for i in User.select():
+    # for i in User.select():
         # if i.username=="Mark the Zucc Zuccson":
         #     profile= Picture(user=i, hash='zucc1.jpeg')
         #     profile.save()
@@ -53,5 +53,4 @@ if __name__ == "__main__":
         #     profile= Picture(user=i, hash='{}.jpeg'.format(['a','b','c','d','e','f','g'][np.random.randint(7)]))
         #     profile.save()
     # usersDB.create_tables([Match])
-
     pass
