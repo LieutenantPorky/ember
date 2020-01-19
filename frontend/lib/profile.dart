@@ -240,11 +240,12 @@ class UserProfilePage extends StatelessWidget {
                       // SizedBox(height: 8.0),
                       _buildButtons(),
                       GridView.extent(
-                          maxCrossAxisExtent: 330.0,
+                          maxCrossAxisExtent: 180.0,
                           mainAxisSpacing: 5.0,
                           crossAxisSpacing: 5.0,
                           primary: false,
                           padding: const EdgeInsets.all(5.0),
+
                           shrinkWrap: true,
                           children: _buildGridTitle(4))
                     ]),

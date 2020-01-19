@@ -20,24 +20,23 @@ def kek():
     print(request.data)
     return "hello"
 
-@app.route('/swiped')
-def swiped():
-    user = User.get(username=json.loads(request.data)["username"])
-    match = User.get(id=json.loads(request.data)["id"])
+@app.route('/swiped/<username>')
+def swiped(username):
+    user = User.get(username=username)
+    match = User.get(id=request.args.get('id'))
     Match.create(user=user, match=match)
     return { "msg": "ok" }
 
-@app.route('/soulmate',methods=['POST'])
-def getSoulMate():
-    print(request.data)
-    user = User.get(username=json.loads(request.data)["username"])
+@app.route('/soulmate/<username>')
+def getSoulMate(username):
+    user = User.get(username=username)
     return jsonify([[model_to_dict(i[0], backrefs=True),i[1]] for i in matchSchedules(user.id)])
 
 
 # People who both swyped right and time tables align
-@app.route("/matched")
+@app.route("/matched/<username>")
 def get_matched():
-    user = User.get(username=json.loads(request.data)["username"])
+    user = User.get(username=username)
     return [model_to_dict(i) for i in getMatched(user)]
 
 # curl -F 'file=@profiles/1_0.png' http://127.0.0.1:8080/upload_photo/1 
