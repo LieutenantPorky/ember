@@ -30,8 +30,15 @@ def addMatch(user, other):
     newMatch = Match(user=user, match=other)
     newMatch.create()
 
+def getMatched(user):
+    good_matches = []
+    for match in user.matches:
+        if Match.get_or_none(user=match.match, match= user):
+            good_matches.append(match.match)
 
-if __name__ == "__main__":
-    # usersDB.create_tables([Picture])
-    # usersDB.create_tables([Match])
-    pass
+    return good_matches
+
+# if __name__ == "__main__":
+#     usersDB.create_tables([Picture])
+#     usersDB.create_tables([Match])
+#     pass
