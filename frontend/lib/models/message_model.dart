@@ -28,7 +28,7 @@ final User currentUser = User(
 final User zucc = User(
   id: 1,
   name: 'The Zucc',
-  imageUrl: 'assets/images/zucc2.jpeg',
+  imageUrl: 'assets/images/zucc1.jpeg',
 );
 final User james = User(
   id: 2,

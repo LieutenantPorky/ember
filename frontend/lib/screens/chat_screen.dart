@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../models/message_model.dart';
 import '../models/user_model.dart';
 import 'package:http/http.dart' as http;
-
+import 'dart:convert';
 
 class ChatScreen extends StatefulWidget {
   final User user;
@@ -48,7 +48,7 @@ class _ChatScreenState extends State<ChatScreen> {
           Text(
             message.time,
             style: TextStyle(
-              color: isMe? Colors.white: Colors.blueGrey,
+              color: isMe ? Colors.white : Colors.blueGrey,
               fontSize: 16.0,
               fontWeight: FontWeight.w600,
             ),
@@ -57,7 +57,7 @@ class _ChatScreenState extends State<ChatScreen> {
           Text(
             message.text,
             style: TextStyle(
-              color: isMe? Colors.white: Colors.blueGrey,
+              color: isMe ? Colors.white : Colors.blueGrey,
               fontSize: 16.0,
               fontWeight: FontWeight.w600,
             ),
@@ -82,6 +82,40 @@ class _ChatScreenState extends State<ChatScreen> {
           onPressed: () {},
         )
       ],
+    );
+  }
+
+  Future<void> _neverSatisfied() async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false, // user must tap button!
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Available room'),
+          content: SingleChildScrollView(
+            child: ListBody(
+              children: <Widget>[
+                Text('Room: $name'),
+                Text('Time: $time'),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            FlatButton(
+              child: Text('Regeret'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            FlatButton(
+              child: Text('Hook me up'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
     );
   }
 
@@ -139,18 +173,25 @@ class _ChatScreenState extends State<ChatScreen> {
           FlatButton(
             // icon: Icon(Icons.more_horiz),
             // iconSize: 30.0,
-            child:  Text(
-              booked ? "Room: $name booked for $time" : "Book a room together",
-              style: TextStyle(color: Colors.white, decoration: TextDecoration.underline, fontSize: 20)),
+            child: Text(
+                // booked
+                    // ? "Room: $name booked for $time" :
+                    "Book a room together",
+                style: TextStyle(
+                    color: Colors.white,
+                    decoration: TextDecoration.underline,
+                    fontSize: 20)),
             // color: Colors.white,
 
             onPressed: () async {
-              // final booking = await http.get("http://127.0.0.1:8080/1/2");
+              final booking = await http.get("http://127.0.0.1:8080/book/1/2");
+              final data = json.decode(booking.body);
               setState(() {
-                name = "UCLRoom";
-                time = "12:30";
+                name = data[1];
+                time = data[0];
                 booked = true;
               });
+              _neverSatisfied();
             },
           ),
         ],
