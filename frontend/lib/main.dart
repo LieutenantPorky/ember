@@ -64,7 +64,18 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Fuck me')
+        centerTitle: true,
+        title: Text(
+          'EMBER',
+          style: TextStyle(
+          fontSize: 40,
+          foreground: Paint()
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = 1.2
+          ..color = Colors.white,
+      ),
+ 
+        )
       ),
       body: _children[_currentIndex],
         bottomNavigationBar: BottomNavigationBar(

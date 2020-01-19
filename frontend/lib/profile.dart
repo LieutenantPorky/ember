@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'dart:io';
 
 class UserProfilePage extends StatelessWidget {
-  final String _fullName = "Nick Frost";
+  final String _fullName = "Mark Zukerberk  ";
   final String _status = "Software Developer";
   final String _bio = "Thanks daddy";
 
@@ -245,7 +246,6 @@ class UserProfilePage extends StatelessWidget {
                           crossAxisSpacing: 5.0,
                           primary: false,
                           padding: const EdgeInsets.all(5.0),
-
                           shrinkWrap: true,
                           children: _buildGridTitle(4))
                     ]),

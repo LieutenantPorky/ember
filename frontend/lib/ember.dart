@@ -12,38 +12,58 @@ class Homescreen extends StatefulWidget {
 }
 
 class HomescreenState extends State<Homescreen> {
-  Future<List<String>> photos;
+  Future<List<Profile>> profiles;
 
   @override
   void initState() {
     super.initState();
-    photos = load();
+    profiles = load();
   }
 
-  Future<List<String>> load() async {
-    final response = await http.get("http://127.0.0.1:8080/photos/1");
-    List<String> rt = json.decode(response.body)["photos"][0].map<String>((e) {
-      return "http://127.0.0.1:8080" + e;
-    }).toList();
-    print(rt);
-    return rt;
+  Future<List<Profile>> load() async {
+    final response = await http.get("http://127.0.0.1:8080/soulmate/Bob");
+    final matches = json.decode(response.body);
+    final profiles = <Profile>[];
+
+    for (dynamic match in matches) {
+      print(match[0]["pictures"]);
+      final photos = <String>[];
+
+      for (dynamic pic in match[0]["pictures"]) {
+        print(pic["hash"]);
+        photos.add("http://127.0.0.1:8080/static/" + pic["hash"]);
+      }
+      if (photos.length > 0) {
+        profiles
+            .add(Profile(name: match[0]["username"], bio: "", photos: photos));
+      }
+    }
+    // List<String> rt = json.decode(response.body)["photos"][0].map<String>((e) {
+    // return "http://127.0.0.1:8080" + e;
+    // }).toList();
+    print(profiles);
+    // return rt;
+    return profiles;
   }
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-        future: photos,
+        future: profiles,
         builder: (ctx, future) {
           if (future.hasData) {
-            demoProfiles.insert(0, Profile(bio: "added", name: "Tigi", photos: future.data));
+            List<Profile> profiles = future.data;
+
+            profiles.addAll(demoProfiles);
+
             return TinderSwapCard(
-              demoProfiles: demoProfiles,
+              demoProfiles: profiles,
               myCallback: (decision) {
                 print(decision);
               },
             );
           } else {
-            return CircularProgressIndicator();
+            return Center(child: CircularProgressIndicator());
           }
         });
   }

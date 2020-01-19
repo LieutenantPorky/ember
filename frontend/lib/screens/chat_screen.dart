@@ -44,7 +44,7 @@ class _ChatScreenState extends State<ChatScreen> {
           Text(
             message.time,
             style: TextStyle(
-              color: Colors.blueGrey,
+              color: isMe? Colors.white: Colors.blueGrey,
               fontSize: 16.0,
               fontWeight: FontWeight.w600,
             ),
@@ -53,7 +53,7 @@ class _ChatScreenState extends State<ChatScreen> {
           Text(
             message.text,
             style: TextStyle(
-              color: Colors.blueGrey,
+              color: isMe? Colors.white: Colors.blueGrey,
               fontSize: 16.0,
               fontWeight: FontWeight.w600,
             ),
