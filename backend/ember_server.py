@@ -47,12 +47,16 @@ def upload(id):
     if file.filename == '':
         return {"msg": "err", "error": "No selected file"}
 
-    new_filename = str(hashlib.sha1(file.read()).hexdigest())
+    content = file.read()
+    new_filename = str(hashlib.sha1(content).hexdigest())
     # TODO: Save the picture in the db
     user = User.get(User.id == id)
-    Picture.create(user=user, hash=new_filename)
 
-    file.save(os.path.join("./static/", new_filename))
+    Picture.create(user=user, hash=new_filename)
+    
+    with open(os.path.join("./static/", new_filename), "wb") as image:
+        image.write(content)
+
     return {"msg": "ok", "value": new_filename}
 
 # User photos
