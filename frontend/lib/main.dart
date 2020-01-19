@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/semantics.dart';
 import 'package:tinder_card/tinder_card.dart';
 
 void main() => runApp(MyApp());
@@ -116,6 +117,22 @@ class Homescreen extends StatelessWidget {
    );
  }
 }
+/////////////////////////////////////////////////////////////////////////////
+//PROFILE PAGE 
+/////////////////////////////////////////////////////////////////////////////
+class Profilepage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context){
+    return Scaffold(
+      body: TextField(
+        decoration: InputDecoration(
+        border: InputBorder.none,
+        hintText: 'Enter a search term'
+        ),
+        ),
+    );
+  }
+}
 
 class Profile {
   final List<String> photos;
@@ -128,16 +145,6 @@ final List<Profile> demoProfiles = [
   new Profile(
     photos: [
       // URL's for the profiles
-      "https://www.petmd.com/sites/default/files/adult-homeless-cat-asking-for-food-picture-id847415388.jpg",
-      "https://www.petmd.com/sites/default/files/adult-homeless-cat-asking-for-food-picture-id847415388.jpg",
-      "https://www.petmd.com/sites/default/files/adult-homeless-cat-asking-for-food-picture-id847415388.jpg",
-      "https://www.petmd.com/sites/default/files/adult-homeless-cat-asking-for-food-picture-id847415388.jpg",
-    ],
-    name: "Master",
-    bio: "Want some good quality pussy?",
-  ),
-  new Profile(
-    photos: [
       "https://www.petmd.com/sites/default/files/adult-homeless-cat-asking-for-food-picture-id847415388.jpg",
       "https://www.petmd.com/sites/default/files/adult-homeless-cat-asking-for-food-picture-id847415388.jpg",
       "https://www.petmd.com/sites/default/files/adult-homeless-cat-asking-for-food-picture-id847415388.jpg",
