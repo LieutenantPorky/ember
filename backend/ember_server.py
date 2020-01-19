@@ -4,8 +4,10 @@ from peewee import *
 from playhouse.sqlite_ext import *
 import os
 import hashlib
-from DatabaseManager import User, Picture, Match
+from DatabaseManager import User, Picture, Match, addMatch, getMatched
+from ScheduleManager import matchSchedules
 from playhouse.shortcuts import model_to_dict, dict_to_model
+import json
 
 app = Flask(__name__, static_folder="./static", static_url_path='/static')
 app.debug = True
@@ -13,31 +15,33 @@ app.debug = True
 
 OAuth = {}
 
-@app.route('/')
+@app.route('/',methods=['POST'])
 def kek():
-    return "kek"
+    print(request.data)
+    return "hello"
 
 @app.route('/swiped')
 def swiped():
-    user = User.get(username=request.json["username"])
-    match = User.get(id=request.json["other"])
+    user = User.get(username=json.loads(request.data)["username"])
+    match = User.get(id=json.loads(request.data)["id"])
     Match.create(user=user, match=match)
     return { "msg": "ok" }
 
-@app.route('/soulmate')
+@app.route('/soulmate',methods=['POST'])
 def getSoulMate():
-    User = User.get(username=request.json["username"])
-    return jsonify(matchSchedules(User.id))
+    print(request.data)
+    user = User.get(username=json.loads(request.data)["username"])
+    return jsonify([[model_to_dict(i[0], backrefs=True),i[1]] for i in matchSchedules(user.id)])
 
 
 # People who both swyped right and time tables align
 @app.route("/matched")
 def get_matched():
-    return {"people": [
-        {"name": "Lisa", "score": 0.7}
-    ]}
+    user = User.get(username=json.loads(request.data)["username"])
+    return [model_to_dict(i) for i in getMatched(user)]
 
 # curl -F 'file=@profiles/1_0.png' http://127.0.0.1:8080/upload_photo/1 
+# Photo upload
 @app.route("/upload_photo/<int:id>", methods=['POST'])
 def upload(id):
     if 'file' not in request.files:
@@ -53,7 +57,7 @@ def upload(id):
     user = User.get(User.id == id)
 
     Picture.create(user=user, hash=new_filename)
-    
+
     with open(os.path.join("./static/", new_filename), "wb") as image:
         image.write(content)
 
