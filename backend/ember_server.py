@@ -19,7 +19,7 @@ OAuth = {}
 def kek():
     print(request.data)
     return "hello"
-
+    
 @app.route('/swiped/<username>')
 def swiped(username):
     user = User.get(username=username)
