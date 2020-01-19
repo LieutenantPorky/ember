@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/semantics.dart';
-import 'package:tinder_card/tinder_card.dart';
+import 'ember.dart';
 
-void main() => runApp(MyApp());
+import 'package:flutter/foundation.dart'
+    show debugDefaultTargetPlatformOverride;
+void main() {
+  debugDefaultTargetPlatformOverride = TargetPlatform.fuchsia;
+  runApp(new MyApp());
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -104,19 +109,7 @@ class PlaceholderWidget extends StatelessWidget {
    );
  }
 }
-class Homescreen extends StatelessWidget {
- @override
- Widget build(BuildContext context) {
-   return Scaffold(
-      body: TinderSwapCard(
-        demoProfiles: demoProfiles,
-        myCallback: (decision) {
-          print(decision);
-          },
-        ),
-   );
- }
-}
+
 /////////////////////////////////////////////////////////////////////////////
 //PROFILE PAGE 
 /////////////////////////////////////////////////////////////////////////////
@@ -133,37 +126,5 @@ class Homescreen extends StatelessWidget {
 //     );
 //   }
 // }
-
-class Profile {
-  final List<String> photos;
-  final String name;
-  final String bio;
-
-  Profile({this.photos, this.name, this.bio});
-}
-final List<Profile> demoProfiles = [
-  new Profile(
-    photos: [
-      // URL's for the profiles
-      "https://www.petmd.com/sites/default/files/adult-homeless-cat-asking-for-food-picture-id847415388.jpg",
-      "https://www.petmd.com/sites/default/files/adult-homeless-cat-asking-for-food-picture-id847415388.jpg",
-      "https://www.petmd.com/sites/default/files/adult-homeless-cat-asking-for-food-picture-id847415388.jpg",
-      "https://www.petmd.com/sites/default/files/adult-homeless-cat-asking-for-food-picture-id847415388.jpg",
-    ],
-    name: "Master",
-    bio: "Want some good quality pussy?",
-  ),
-  new Profile(
-    photos: [
-      "https://www.petmd.com/sites/default/files/adult-homeless-cat-asking-for-food-picture-id847415388.jpg",
-      "https://www.petmd.com/sites/default/files/adult-homeless-cat-asking-for-food-picture-id847415388.jpg",
-      "https://www.petmd.com/sites/default/files/adult-homeless-cat-asking-for-food-picture-id847415388.jpg",
-      "https://www.petmd.com/sites/default/files/adult-homeless-cat-asking-for-food-picture-id847415388.jpg",
-    ],
-    name: "Master",
-    bio: "Want some good quality pussy?",
-  )
-];
-
 
 

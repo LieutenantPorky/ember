@@ -1,10 +1,11 @@
-import 'package:flutter/foundation.dart'
-    show debugDefaultTargetPlatformOverride;
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
+import 'package:flutter/foundation.dart'
+    show debugDefaultTargetPlatformOverride;
 void main() {
   debugDefaultTargetPlatformOverride = TargetPlatform.fuchsia;
   runApp(new MyApp());
