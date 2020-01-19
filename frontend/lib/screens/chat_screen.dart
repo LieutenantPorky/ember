@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import '../models/message_model.dart';
 import '../models/user_model.dart';
+import 'package:http/http.dart' as http;
+
 
 class ChatScreen extends StatefulWidget {
   final User user;
@@ -12,6 +14,8 @@ class ChatScreen extends StatefulWidget {
 }
 
 class _ChatScreenState extends State<ChatScreen> {
+  // List<Message> messages = [];
+
   _buildMessage(Message message, bool isMe) {
     final Container msg = Container(
       margin: isMe
@@ -114,6 +118,10 @@ class _ChatScreenState extends State<ChatScreen> {
     );
   }
 
+  String name = "";
+  String time = "";
+  bool booked = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -128,11 +136,22 @@ class _ChatScreenState extends State<ChatScreen> {
         ),
         elevation: 0.0,
         actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.more_horiz),
-            iconSize: 30.0,
-            color: Colors.white,
-            onPressed: () {},
+          FlatButton(
+            // icon: Icon(Icons.more_horiz),
+            // iconSize: 30.0,
+            child:  Text(
+              booked ? "Room: $name booked for $time" : "Book a room together",
+              style: TextStyle(color: Colors.white, decoration: TextDecoration.underline, fontSize: 20)),
+            // color: Colors.white,
+
+            onPressed: () async {
+              // final booking = await http.get("http://127.0.0.1:8080/1/2");
+              setState(() {
+                name = "UCLRoom";
+                time = "12:30";
+                booked = true;
+              });
+            },
           ),
         ],
       ),

@@ -24,9 +24,9 @@ class HomescreenState extends State<Homescreen> {
     final response = await http.get("http://127.0.0.1:8080/soulmate/Bob");
     final matches = json.decode(response.body);
     final profiles = <Profile>[];
+    // print(matches);
 
     for (dynamic match in matches) {
-      print(match[0]["pictures"]);
       final photos = <String>[];
 
       for (dynamic pic in match[0]["pictures"]) {
@@ -35,15 +35,16 @@ class HomescreenState extends State<Homescreen> {
       }
       if (photos.length > 0) {
         profiles
-            .add(Profile(name: match[0]["username"], bio: "", photos: photos));
+            .add(Profile(name: match[0]["username"], bio: match[0]["bio"], photos: photos));
       }
     }
     // List<String> rt = json.decode(response.body)["photos"][0].map<String>((e) {
     // return "http://127.0.0.1:8080" + e;
     // }).toList();
     print(profiles);
+    
     // return rt;
-    return profiles;
+    return profiles.reversed.toList();
   }
 
   @override
