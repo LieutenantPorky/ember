@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/semantics.dart';
 import 'ember.dart';
 import 'profile.dart';
-
+import './screens/home_screen.dart';
 import 'package:flutter/foundation.dart'
     show debugDefaultTargetPlatformOverride;
 void main() {
@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.red,
       ),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -57,7 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
   final List<Widget> _children = [
     UserProfilePage(),
     Homescreen(),
-    PlaceholderWidget(Colors.green)
+    HomeScreen() // THE CHAT HOMESCREEN, THIS NEEDS TO CHANGE LATER SPHAGETTI CODE TODO
   ];
   @override
   Widget build(BuildContext context) {
