@@ -11,6 +11,12 @@ class User(Model):
     class Meta:
         database = usersDB
 
+class Match(Model):
+    user = ForeignKeyField(User, backref='matches')
+    match = ForeignKeyField(User, backref='matchers')
+    class Meta:
+        database = usersDB
+
 class Picture(Model):
     id = AutoField()
     hash = CharField(unique=True)
@@ -21,4 +27,5 @@ class Picture(Model):
 
 if __name__ == "__main__":
     # usersDB.create_tables([Picture])
+    # usersDB.create_tables([Match])
     pass
