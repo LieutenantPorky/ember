@@ -37,6 +37,7 @@ def get_matched():
         {"name": "Lisa", "score": 0.7}
     ]}
 
+# curl -F 'file=@profiles/1_0.png' http://127.0.0.1:8080/upload_photo/1 
 @app.route("/upload_photo/<int:id>", methods=['POST'])
 def upload(id):
     if 'file' not in request.files:
