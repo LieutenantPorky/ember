@@ -62,7 +62,7 @@ def upload(id):
     Picture.create(user=user, hash=new_filename)
 
     file.save(os.path.join("./static/", new_filename))
-    return {"msg": "ok"}
+    return {"msg": "ok", "value": new_filename}
 
 # User photos
 @app.route("/photos/<int:id>")
