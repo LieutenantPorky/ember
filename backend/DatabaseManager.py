@@ -10,3 +10,15 @@ class User(Model):
 
     class Meta:
         database = usersDB
+
+class Picture(Model):
+    id = AutoField()
+    hash = CharField(unique=True)
+    user = ForeignKeyField(User, backref='pictures')
+
+    class Meta:
+        database = usersDB
+
+if __name__ == "__main__":
+    # usersDB.create_tables([Picture])
+    pass
