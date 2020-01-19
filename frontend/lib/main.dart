@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/semantics.dart';
 import 'ember.dart';
+import 'profile.dart';
 
 import 'package:flutter/foundation.dart'
     show debugDefaultTargetPlatformOverride;
@@ -54,7 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
   //index for bottom navigation index 
   int _currentIndex = 1;
   final List<Widget> _children = [
-    PlaceholderWidget(Colors.white),
+    UserProfilePage(),
     Homescreen(),
     PlaceholderWidget(Colors.green)
   ];
@@ -109,22 +110,3 @@ class PlaceholderWidget extends StatelessWidget {
    );
  }
 }
-
-/////////////////////////////////////////////////////////////////////////////
-//PROFILE PAGE 
-/////////////////////////////////////////////////////////////////////////////
-// class Profilepage extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context){
-//     return Scaffold(
-//       body: TextField(
-//         decoration: InputDecoration(
-//         border: InputBorder.none,
-//         hintText: 'Enter a search term'
-//         ),
-//         ),
-//     );
-//   }
-// }
-
-
