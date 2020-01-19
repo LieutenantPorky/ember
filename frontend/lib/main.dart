@@ -120,19 +120,19 @@ class Homescreen extends StatelessWidget {
 /////////////////////////////////////////////////////////////////////////////
 //PROFILE PAGE 
 /////////////////////////////////////////////////////////////////////////////
-class Profilepage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context){
-    return Scaffold(
-      body: TextField(
-        decoration: InputDecoration(
-        border: InputBorder.none,
-        hintText: 'Enter a search term'
-        ),
-        ),
-    );
-  }
-}
+// class Profilepage extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context){
+//     return Scaffold(
+//       body: TextField(
+//         decoration: InputDecoration(
+//         border: InputBorder.none,
+//         hintText: 'Enter a search term'
+//         ),
+//         ),
+//     );
+//   }
+// }
 
 class Profile {
   final List<String> photos;
